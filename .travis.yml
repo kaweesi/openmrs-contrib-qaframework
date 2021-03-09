@@ -9,12 +9,10 @@ cache:
   directories:
   - $HOME/.m2
 
-install: false
-
 before_cache:
   - rm -rf $HOME/.m2/repository/org/openmrs
 
-before_script:
+before_install:
     git clone https://github.com/openmrs/openmrs-contrib-uitestframework.git;
     cd openmrs-contrib-uitestframework;
     git fetch --all;
@@ -31,6 +29,3 @@ before_script:
     cd ../../;
     rm -rf openmrs-contrib-uitestframework;
     rm -rf openmrs-distro-referenceapplication;
-
-script:
-  - mvn test
