@@ -13,22 +13,22 @@ before_cache:
   - rm -rf $HOME/.m2/repository/org/openmrs
 
 before_script:
-    - git clone https://github.com/openmrs/openmrs-contrib-uitestframework.git
-    - cd openmrs-contrib-uitestframework
-    - git fetch --all
-    - git checkout qa
-    - echo "cucumber.publish.enabled=true" >> src/test/resources/cucumber.properties
-    - cp -f src/test/resources/org/openmrs/uitestframework/test-travis-ci.properties src/test/resources/org/openmrs/uitestframework/test.properties
-    - mvn clean install
-    - cd ../
-    - git clone https://github.com/openmrs/openmrs-distro-referenceapplication.git
-    - cd openmrs-distro-referenceapplication/ui-tests
-    - git fetch --all
-    - git checkout qa
-    - mvn clean install
-    - cd ../../
-    - rm -rf openmrs-contrib-uitestframework
-    - rm -rf openmrs-distro-referenceapplication
+    git clone https://github.com/openmrs/openmrs-contrib-uitestframework.git;
+    cd openmrs-contrib-uitestframework;
+    git fetch --all;
+    git checkout qa;
+    echo "cucumber.publish.enabled=true" >> src/test/resources/cucumber.properties;
+    cp -f src/test/resources/org/openmrs/uitestframework/test-travis-ci.properties src/test/resources/org/openmrs/uitestframework/test.properties;
+    mvn clean install;
+    cd ../;
+    git clone https://github.com/openmrs/openmrs-distro-referenceapplication.git;
+    cd openmrs-distro-referenceapplication/ui-tests;
+    git fetch --all;
+    git checkout qa;
+    mvn clean install;
+    cd ../../;
+    rm -rf openmrs-contrib-uitestframework;
+    rm -rf openmrs-distro-referenceapplication;
 
 script:
   - mvn test
