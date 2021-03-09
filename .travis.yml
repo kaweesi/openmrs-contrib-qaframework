@@ -29,6 +29,6 @@ before_install:
     rm -rf openmrs-distro-referenceapplication;
 
 install:
-  echo "cucumber.publish.enabled=true" >> src/test/resources/cucumber.properties;
+  echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties;
   cp -f src/test/resources/org/openmrs/uitestframework/test-travis-ci.properties src/test/resources/org/openmrs/uitestframework/test.properties;
   mvn clean install;
